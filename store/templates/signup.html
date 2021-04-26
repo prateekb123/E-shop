@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class='p-4 m-4'>
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+
+            <h3 class="pl-5">Create An Account</h3>
+
+            {% if error %}
+            <div class="alert alert-danger">
+                {{error}}
+            </div>
+            {% endif %}
+
+            <!-- First Name -->
+            <form method="POST" action="/signup">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="">First Name</label>
+                <input type="text" name="first_name" id="First Name" value="{{values.first_name}}" class="form-control" placeholder="Enter First Name">
+                </div>
+            
+
+            <!--Last Name -->
+      
+                <div class="form-group">
+                <label for="">Last Name</label>
+                <input type="text" name="last_name" id="Last Name" value="{{values.last_name}}" class="form-control" placeholder="Enter Last Name">
+                </div>
+    
+
+            <!--Email -->
+
+                <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" name="email" id="email" value="{{values.email}}" class="form-control" placeholder="example@gmail.com">
+                </div>
+
+
+            <!-- Password -->
+
+                <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" id="" class="form-control" placeholder="******">
+                </div>
+
+
+             <!--Phone Number-->
+                <div class="form-group">
+                <label for="">Phone Number</label>
+                <input type="text" name="phone_number" id="Last Name" value="{{values.phone}}" class="form-control" placeholder="8888888888">
+                </div>
+
+                <div class="form-group">
+                    <input class='btn btn-sm btn-info' type="submit" value="Create An Account">
+                </div>
+
+
+            </form>
+
+            
+    </div>
+    </div>
+</div>
+
+{% endblock %}
